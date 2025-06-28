@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Shield } from "lucide-react";
 import {
   MiniKit,
@@ -8,6 +8,8 @@ import {
   VerificationLevel,
   ISuccessResult,
 } from "@worldcoin/minikit-js";
+import { useAtom } from "jotai";
+import { walletAddress } from "@/atoms/walletAddress";
 
 interface VerifyButtonProps {
   onVerificationSuccess: () => void;
@@ -18,6 +20,8 @@ export function VerifyButton({ onVerificationSuccess }: VerifyButtonProps) {
   const [verificationError, setVerificationError] = useState<string | null>(
     null
   );
+
+  const [address] = useAtom(walletAddress);
 
   const handleVerify = async () => {
     // Don't start verification if it's already in progress
@@ -38,7 +42,7 @@ export function VerifyButton({ onVerificationSuccess }: VerifyButtonProps) {
 
       const verifyPayload: VerifyCommandInput = {
         action: process.env.NEXT_PUBLIC_WLD_ACTION_ID || "web3-template",
-        signal: "",
+        signal: address,
         verification_level: VerificationLevel.Orb,
       };
 
@@ -79,6 +83,7 @@ export function VerifyButton({ onVerificationSuccess }: VerifyButtonProps) {
             signal: "",
           }),
         });
+        console.log(verifyResponse);
 
         setIsVerifying(false);
         setVerificationError(null);
@@ -117,7 +122,7 @@ export function VerifyButton({ onVerificationSuccess }: VerifyButtonProps) {
         className="w-full max-w-xs px-8 py-4 bg-blue-500 text-white font-medium text-lg rounded-xl shadow-sm hover:bg-blue-600 active:bg-blue-700 transition-colors touch-manipulation flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
       >
         <Shield className="w-5 h-5" />
-        {isVerifying ? "Verifying..." : "Verify to Claim"}
+        {isVerifying ? "Verifying..." : "Verify to Login"}
       </button>
     </>
   );

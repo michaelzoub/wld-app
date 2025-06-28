@@ -1,4 +1,4 @@
-// File: /Users/mateosauton/Matteo-Project/my-app/src/app/api/verify/route.ts
+// File: C:\Users\micha\Downloads\apptest\MiniAppWeb3template\my-app\src\app\api\verify\route.ts
 import * as entry from '../../../../../src/app/api/verify/route.js'
 import type { NextRequest } from 'next/server.js'
 

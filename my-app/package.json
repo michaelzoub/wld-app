@@ -9,11 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@worldcoin/idkit": "^2.2.2",
     "@worldcoin/minikit-js": "^1.7.0",
     "@worldcoin/minikit-react": "^1.8.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "eruda": "^3.4.1",
+    "jotai": "^2.12.5",
     "lucide-react": "^0.484.0",
     "next": "^15.2.4",
     "next-auth": "^4.24.11",

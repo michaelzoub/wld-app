@@ -14,7 +14,7 @@ importers:
     devDependencies:
       '@nomicfoundation/hardhat-toolbox':
         specifier: ^4.0.0
-        version: 4.0.0(ofodd3tyuyj7nvfysyao7jr5wu)
+        version: 4.0.0(79ae57f56f8f523f1786b05336b3dd74)
       '@openzeppelin/contracts':
         specifier: ^5.0.0
         version: 5.2.0
@@ -2404,7 +2404,7 @@ snapshots:
       ethereumjs-util: 7.1.5
       hardhat: 2.22.19(ts-node@10.9.2(@types/node@22.13.14)(typescript@5.8.2))(typescript@5.8.2)
 
-  '@nomicfoundation/hardhat-toolbox@4.0.0(ofodd3tyuyj7nvfysyao7jr5wu)':
+  '@nomicfoundation/hardhat-toolbox@4.0.0(79ae57f56f8f523f1786b05336b3dd74)':
     dependencies:
       '@nomicfoundation/hardhat-chai-matchers': 2.0.8(@nomicfoundation/hardhat-ethers@3.0.8(ethers@6.13.5)(hardhat@2.22.19(ts-node@10.9.2(@types/node@22.13.14)(typescript@5.8.2))(typescript@5.8.2)))(chai@4.5.0)(ethers@6.13.5)(hardhat@2.22.19(ts-node@10.9.2(@types/node@22.13.14)(typescript@5.8.2))(typescript@5.8.2))
       '@nomicfoundation/hardhat-ethers': 3.0.8(ethers@6.13.5)(hardhat@2.22.19(ts-node@10.9.2(@types/node@22.13.14)(typescript@5.8.2))(typescript@5.8.2))

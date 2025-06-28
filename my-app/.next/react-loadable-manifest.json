@@ -1,20 +1,26 @@
 {
-  "../node_modules/viem/_esm/actions/public/call.js -> ../../utils/ccip.js": {
-    "id": "../node_modules/viem/_esm/actions/public/call.js -> ../../utils/ccip.js",
+  "..\\node_modules\\next\\dist\\client\\components\\react-dev-overlay\\utils\\use-websocket.js -> @vercel/turbopack-ecmascript-runtime/browser/dev/hmr-client/hmr-client.ts": {
+    "id": "..\\node_modules\\next\\dist\\client\\components\\react-dev-overlay\\utils\\use-websocket.js -> @vercel/turbopack-ecmascript-runtime/browser/dev/hmr-client/hmr-client.ts",
+    "files": [
+      "static/chunks/_app-pages-browser_node_modules_next_dist_client_dev_noop-turbopack-hmr_js.js"
+    ]
+  },
+  "..\\node_modules\\viem\\_esm\\actions\\public\\call.js -> ../../utils/ccip.js": {
+    "id": "..\\node_modules\\viem\\_esm\\actions\\public\\call.js -> ../../utils/ccip.js",
     "files": [
       "static/chunks/_app-pages-browser_node_modules_viem__esm_utils_ccip_js.js"
     ]
   },
-  "../node_modules/viem/_esm/utils/rpc/webSocket.js -> isows": {
-    "id": "../node_modules/viem/_esm/utils/rpc/webSocket.js -> isows",
+  "..\\node_modules\\viem\\_esm\\utils\\rpc\\webSocket.js -> isows": {
+    "id": "..\\node_modules\\viem\\_esm\\utils\\rpc\\webSocket.js -> isows",
     "files": []
   },
-  "../node_modules/viem/_esm/utils/signature/recoverPublicKey.js -> @noble/curves/secp256k1": {
-    "id": "../node_modules/viem/_esm/utils/signature/recoverPublicKey.js -> @noble/curves/secp256k1",
+  "..\\node_modules\\viem\\_esm\\utils\\signature\\recoverPublicKey.js -> @noble/curves/secp256k1": {
+    "id": "..\\node_modules\\viem\\_esm\\utils\\signature\\recoverPublicKey.js -> @noble/curves/secp256k1",
     "files": []
   },
-  "providers/eruda-provider.tsx -> eruda": {
-    "id": "providers/eruda-provider.tsx -> eruda",
+  "providers\\eruda-provider.tsx -> eruda": {
+    "id": "providers\\eruda-provider.tsx -> eruda",
     "files": [
       "static/chunks/_app-pages-browser_node_modules_eruda_eruda_js.js"
     ]

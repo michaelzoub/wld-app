@@ -10,6 +10,7 @@ import { useWaitForTransactionReceipt } from "@worldcoin/minikit-react";
 import { createPublicClient, http } from "viem";
 import { worldchain } from "@/lib/chains";
 import { TransactionStatus } from "@/components/TransactionStatus";
+import Feed from "@/components/Feed";
 
 // // This would come from environment variables in a real app
 // const APP_ID =
@@ -101,34 +102,21 @@ export default function Page() {
   return (
     <div className="flex flex-col h-[100dvh] bg-white safe-area-inset">
       {/* Main Content */}
-      <div className="flex-1 flex flex-col items-center justify-center px-6 py-8 gap-8">
-        <h1 className="text-3xl font-bold text-purple-600">TUTE App</h1>
+      <div className="flex-1 flex flex-col items-center px-6 py-8">
+        <h2 className="">Decentrachat</h2>
+        <p className="text-gray-400">Post a mood a day and tip inspiring posts.</p>
 
         {tuteClaimed ? (
           <TuteTimer timeRemaining={timeRemaining} />
         ) : (
           <>
-            <div className="text-center mb-6">
+            <div className="text-center my-auto">
               <p className="text-lg">
                 {!walletConnected
                   ? "Connect your wallet to continue"
                   : !verified
                   ? "Verify with World ID to claim your TUTE tokens"
-                  : isConfirming || isMinting
-                  ? "Minting your TUTE tokens..."
-                  : "You're all set! Claim your TUTE tokens now"}
-              </p>
-              <p className="text-sm text-gray-500 mt-2">
-                Tokens claimed: {claimCount}
-              </p>
-              <p className="text-xs text-blue-500 mt-1">
-                Wallet:{" "}
-                {session?.user?.address
-                  ? `${session.user.address.substring(
-                      0,
-                      6
-                    )}...${session.user.address.substring(38)}`
-                  : "..."}
+                  : <></> }
               </p>
 
               <TransactionStatus
@@ -136,15 +124,19 @@ export default function Page() {
                 isConfirmed={isConfirmed}
                 isMinting={isMinting}
               />
-            </div>
 
             {!walletConnected ? (
               <WalletAuthButton onSuccess={handleWalletConnected} />
             ) : !verified ? (
               <VerifyButton onVerificationSuccess={handleVerificationSuccess} />
             ) : (
-              <ClaimButton onSuccess={handleClaimSuccess} />
+               /* add app here */
+              <main className="flex justify-center items-center w-[90vw]">
+                <Feed />
+              </main>
             )}
+            </div>
+
           </>
         )}
       </div>

@@ -5,6 +5,7 @@ import { SessionProvider } from "@/providers/session-provider";
 import MiniKitProvider from "@/providers/minikit-provider";
 import { ErudaProvider } from "@/providers/eruda-provider";
 import "./globals.css";
+import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,6 +27,7 @@ export default function RootLayout({
         <ErudaProvider>
           <SessionProvider>
             <MiniKitProvider>{children}</MiniKitProvider>
+            <Footer verified={true}></Footer>
           </SessionProvider>
         </ErudaProvider>
       </body>

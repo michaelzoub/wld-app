@@ -2,6 +2,8 @@
 import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { MiniKit } from "@worldcoin/minikit-js";
+import { useAtom } from "jotai";
+import { walletAddress } from "@/atoms/walletAddress";
 
 interface WalletAuthButtonProps {
   onSuccess?: () => void;
@@ -9,6 +11,7 @@ interface WalletAuthButtonProps {
 
 export function WalletAuthButton({ onSuccess }: WalletAuthButtonProps) {
   const [isLoading, setIsLoading] = useState(false);
+  const [, setWalletAddress] = useAtom(walletAddress);
 
   const handleWalletAuth = async () => {
     if (!MiniKit.isInstalled()) {
@@ -53,6 +56,10 @@ export function WalletAuthButton({ onSuccess }: WalletAuthButtonProps) {
           redirect: false,
         });
 
+        //emit atom globally
+        console.log(finalPayload.address);
+        setWalletAddress(finalPayload.address);
+
         // Call onSuccess if provided
         if (onSuccess) onSuccess();
       }
@@ -67,17 +74,16 @@ export function WalletAuthButton({ onSuccess }: WalletAuthButtonProps) {
     <button
       onClick={handleWalletAuth}
       disabled={isLoading}
-      className="px-4 py-2 bg-yellow-700 hover:bg-yellow-600 text-white rounded-lg border-2 border-yellow-900/50 font-bold shadow-md transition-colors disabled:opacity-50 tracking-wide"
+      className="px-4 py-2 mt-4 bg-pink-400 hover:bg-pink-500/80 text-white rounded-2xl border-2 border-pink-300/50 shadow-md transition-colors disabled:opacity-50 tracking-wide"
     >
       {isLoading ? (
         <div className="flex items-center">
           <div className="w-4 h-4 mr-2 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-          <span className="font-serif">Connecting...</span>
+          <span className="">Connecting...</span>
         </div>
       ) : (
         <div className="flex items-center">
-          <span className="mr-2">🎰</span>
-          <span className="font-serif">Connect Wallet</span>
+          <span className="">Connect Wallet</span>
         </div>
       )}
     </button>
