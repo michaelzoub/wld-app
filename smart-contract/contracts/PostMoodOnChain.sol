@@ -14,14 +14,13 @@ contract MoodBoard {
 
     struct Post {
         uint256 id;
-        address poster;
+        address poster; //post's poster address
         string contentURI;
         uint256 totalTips;
     }
 
-    mapping(uint256 => Post) public posts;
+    mapping(uint256 => Post) public posts; //id to retrieve the post
     //TODO: use TheGraph instead
-    Post[] public postList;
 
     mapping(address => uint256) public lastPostAt;
 
@@ -33,6 +32,7 @@ contract MoodBoard {
     }
 
     function createPost(string memory contentURI, string memory message) external {
+        //require is checks
         require(bytes(contentURI).length > 0, "Content required");
 
         // Make sure the sender is verified with World ID
@@ -46,23 +46,25 @@ contract MoodBoard {
             block.timestamp >= lastPostAt[msg.sender] + POST_COOLDOWN,
             "Wait before posting again"
         );
-
+        //effects: changes the states
         postCount++;
         Post memory newPost = Post(postCount, msg.sender, contentURI, 0);
         posts[postCount] = newPost;
         lastPostAt[msg.sender] = block.timestamp;
-        postList.push(newPost);
-
+        //interactions: calling or emitting functions
         emit PostCreated(postCount, msg.sender, contentURI, message);
     }
 
-    function tipPost(uint256 postId, address targetAddress) external payable {
+    function tipPost(uint256 postId) external payable {
+        //checks
         require(postId > 0 && postId <= postCount, "Invalid post");
         require(msg.value > 0, "Send ETH to tip");
 
+        //effects: change states
         Post storage post = posts[postId];
         post.totalTips += msg.value;
 
+        //interactions
         (bool sent, ) = post.poster.call{value: msg.value}("");
         require(sent, "Transfer failed");
 
